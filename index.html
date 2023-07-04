@@ -1,0 +1,72 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="main">
+        <div class="calculadora">
+            <div class="mostrar">
+                <div id="mostrar"><input class="test" type="button" name="ver"></div>
+            </div>
+            <div name="mostrar" class="buttons">
+                <table>
+                    <tr>
+                        <td><input class="operador" id="reset" type="button" value="AC" onClick="reset()"></td>
+                        <td><input class="operador" type="button" value="%" onClick="porcentagem()"></td>
+                        <td><input class="operador" type="button" value="&divide;" onClick="addparametro('/')"></td>
+                        <td><input class="operador" type="button" value='+' onClick="addparametro('+')"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="numero" type="button" value="7" onClick="addparametro(7)"></td>
+                        <td><input class="numero" type="button" value="8" onClick="addparametro(8)"></td>
+                        <td><input class="numero" type="button" value="9" onClick="addparametro(9)"></td>
+                        <td><input class="operador" type="button" value="x" onClick="addparametro('*')"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="numero" type="button" value="4" onClick="addparametro(4)"></td>
+                        <td><input class="numero" type="button" value="5" onClick="addparametro(5)"></td>
+                        <td><input class="numero" type="button" value="6" onClick="addparametro(6)"></td>
+                        <td><input class="operador" type="button" value="-" onClick="addparametro('-')"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="numero" type="button" value="1" onClick="addparametro(1)"></td>
+                        <td><input class="numero" type="button" value="2" onClick="addparametro(2)"></td>
+                        <td><input class="numero" type="button" value="3" onClick="addparametro(3)"></td>
+                        <td rowspan="2"><input class="igual"  type="button" value="="id="igual" onClick="resultado()"></input></td>
+                    </tr>
+                    <tr>
+                        <td><input class="operador" type="button" value="<" onClick="backspace()"></td>
+                        <td><input class="numero" type="button" value="0" onClick="addparametro(0)"></td>
+                        <td><input class="operador" type="button" value="." onClick="addparametro('.')"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function addparametro(parametro){
+            document.querySelector("[name='ver']");
+            test = document.querySelectorAll("[name='mostrar']").value = parametro;
+            document.querySelector("[name='ver']").value += test;
+        }
+        function resultado(){
+            conta = document.querySelector("[name='ver']").value
+            document.querySelector("[name='ver']").value = eval(conta);
+        }
+        function porcentagem(){
+            conta = document.querySelector("[name='ver']").value + "/100"
+            document.querySelector("[name='ver']").value = eval(conta);
+        }
+        function reset(){
+            document.querySelector("[name='ver']").value = '';
+        }
+        function backspace(){
+            document.querySelector("[name='ver']").value = innerHTML.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
